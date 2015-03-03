@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Teste</title>
+		
+		<style>
+			.campo{
+				background-color: #c0c0c0;
+				padding: 10px
+			}
+			
+			.campo:FOCUS {
+				 background-color: yellow
+			}
+		</style>
+		
+		<script>
+			function validar() {
+				campoEmail = document.getElementById('newsletterform:email');
+				
+				if (campoEmail.value == '') {
+					alert('Informe o seu e-mail');
+					return false;
+				}
+				return true;
+			}
+		</script>
+		
+	</h:head>
+	<h:body>
+		<h:form id="newsletterform">
+			<h:outputLabel value="Assine nossa newsletter"
+				rendered="true" /> <!-- oculta o componente em questão bom para usar com expressões de retorno de variável -->
+			<br/>
+			
+			<h:inputText value="Seu e-mail aqui"
+				size="40"
+				maxlength="30"
+				title="Informe o seu e-mail aqui"
+				onfocus="this.value = ''" 
+				id="email" 
+				style="font-size: 19px" 
+				styleClass="campo" /> <!-- styleClass: atribui os valores css definido no campo dentro da tag head 
+										   onfocus: atribui alguma modificação ao entrar no campo -->
+			
+			<h:commandButton value="Assinar"
+			 	onclick="return validar()" 
+			 	id="assinarBotao"/>			<!-- onclick chama a validação feita por javascript -->
+						
+		</h:form>
+	
+	</h:body>
+</html>
