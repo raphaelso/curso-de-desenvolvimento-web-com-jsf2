@@ -14,19 +14,21 @@
 				font-size: 12px;
 			}
 			
-			.cabecalho {
+			.cabecalho{
 				background-color: black;
 				color: white;
 			}
 			
-			.linha1 {
+			.linha1{
 				background-color: #c9c9c9;
 			}
-			
-			.linha2 {
+
+			.linha2{
 				background-color: white;
-			}
+			}			
+			
 		</style>
+		
 	</h:head>
 	<h:body>
 		<h:form id="frm">
@@ -36,7 +38,7 @@
 					border="0" cellpadding="2" cellspacing="0"
 					rendered="#{not empty consultaClienteBean.clientes}"
 					width="500px" styleClass="tabela" headerClass="cabecalho"
-					rowClasses="linha1, linha2">
+					rowClasses="linha2,linha1">
 				
 				<h:column>
 					<f:facet name="header">
@@ -68,6 +70,9 @@
 				</h:column>
 				
 			</h:dataTable>
+			
+			<h:commandButton value="Salvar" action="#{consultaClienteBean.salvar}"
+				rendered="#{not empty consultaClienteBean.clientes}"/>
 			
 		</h:form>
 	</h:body>

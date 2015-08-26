@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="24-Aula03.11-ArquivosJavaScriptCSS">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="24-Aula03.11-ArquivosJavaScriptCSS"/>
         <property name="java-output-path" value="/24-Aula03.11-ArquivosJavaScriptCSS/bin"/>
+        <property name="context-root" value="24-Aula03.11-ArquivosJavaScriptCSS"/>
     </wb-module>
 </project-modules>
