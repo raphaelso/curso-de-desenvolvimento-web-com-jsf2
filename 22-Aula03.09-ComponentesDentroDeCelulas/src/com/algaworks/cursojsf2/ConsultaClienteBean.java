@@ -1,5 +1,6 @@
 package com.algaworks.cursojsf2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @ViewScoped
-public class ConsultaClienteBean {
+public class ConsultaClienteBean implements Serializable {
 
 	private List<Cliente> clientes = new ArrayList<Cliente>();
 	

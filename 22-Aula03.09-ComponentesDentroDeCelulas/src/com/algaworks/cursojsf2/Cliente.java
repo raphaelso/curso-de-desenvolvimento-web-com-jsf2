@@ -1,6 +1,8 @@
 package com.algaworks.cursojsf2;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
 
 	private Integer codigo;
 	private String nome;
