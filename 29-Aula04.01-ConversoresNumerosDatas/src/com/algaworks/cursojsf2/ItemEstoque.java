@@ -1,9 +1,10 @@
 package com.algaworks.cursojsf2;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ItemEstoque {
+public class ItemEstoque implements Serializable{
 
 	private Integer codigoProduto;
 	private String descricao;

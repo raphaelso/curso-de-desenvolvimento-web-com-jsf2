@@ -2,7 +2,7 @@
     <wb-module deploy-name="29-Aula04.01-ConversoresNumerosDatas">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="29-Aula04.01-ConversoresNumerosDatas"/>
         <property name="java-output-path" value="/29-Aula04.01-ConversoresNumerosDatas/bin"/>
+        <property name="context-root" value="29-Aula04.01-ConversoresNumerosDatas"/>
     </wb-module>
 </project-modules>
