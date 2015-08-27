@@ -9,7 +9,7 @@
 		<title>Pessoas</title>
 		
 		<h:outputStylesheet library="css" name="sistema.css"/>
-		<h:outputStylesheet library="css" name="consulta-lancamentos.css"/>
+		<h:outputStylesheet library="css" name="consulta-pessoas.css"/>
 	</h:head>
 	<h:body>
 
@@ -20,7 +20,7 @@
 
 			<h:dataTable var="pessoa" value="#{consultaPessoaBean.pessoas}"
 				width="100%" styleClass="grid" headerClass="cabecalho" rowClasses="cor-sim, cor-nao"
-				columnClasses="tipo, pessoa, descricao, valor, vencimento, pagamento, situacao, acoes">
+				columnClasses="nome, tipo, ramo-atividade, acoes">
 				
 				<h:column>
 					<f:facet name="header">
