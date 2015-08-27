@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Catalogar livros</title>
+		<h:outputStylesheet library="css" name="tabela.css" />
+	</h:head>
+
+	<h:body>
+		
+		<h:form id="frmCadastro">
+			<h3>
+				<h:commandLink value="Obter ajuda" action="#{catalogaLivro.obterAjuda}" />
+			</h3>
+			
+			<h:panelGrid columns="2">	
+				<f:facet name="header">
+					Cadastro de Livros
+				</f:facet>		
+
+				<h:outputLabel value="Titulo:"/>
+				<h:inputText value="#{catalogaLivro.livro.titulo}" />
+				
+				<h:outputLabel value="Autores:"/>
+				<h:selectOneMenu value="#{catalogaLivro.livro.autores}">
+					<f:selectItem itemValue="Ellen White"/>
+					<f:selectItem itemValue="George Vandeman"/>
+					<f:selectItem itemValue="Henry Feyerabend"/>
+					<f:selectItem itemValue="Morris Venden"/>
+				</h:selectOneMenu>
+
+				<h:outputLabel value="Assunto:"/>
+				<h:selectOneRadio value="#{catalogaLivro.livro.assunto}">
+					<f:selectItem itemLabel="Biografia"/>
+					<f:selectItem itemLabel="Profecias"/>
+				</h:selectOneRadio>
+				
+				<h:outputLabel/>
+				<h:commandButton value="Incluir livro" action="#{catalogaLivro.incluirLivro}" />
+			</h:panelGrid>
+		</h:form>
+		
+		<br/>
+		<h:form id="frmPesquisa">
+			Pesquisar livro por título:
+			<h:inputText 
+				value="#{catalogaLivro.tituloPesquisa}"
+				valueChangeListener="#{catalogaLivro.tituloPesquisaAlterado}"
+				onchange="submit()" />
+		</h:form>
+		<br/>
+		
+		<h:form id="frmResultadoPesquisa">
+
+			<h:dataTable value="#{catalogaLivro.listaLivrosFiltrados}" var="item" 
+					border="0" cellpadding="2" cellspacing="0"
+					rendered="#{not empty catalogaLivro.listaLivros}"
+					width="500px" styleClass="tabela" headerClass="cabecalho"
+					rowClasses="linha2,linha1">
+					
+				<h:column>
+					<f:facet name="header">
+						Titulo
+					</f:facet>
+				
+					<h:outputText value="#{item.titulo}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Autor
+					</f:facet>
+					
+					<h:outputLink value="https://www.google.com.br/search?tbm=isch&amp;q=#{item.autores}">					
+						<h:outputText value="#{item.autores}"/>
+					</h:outputLink>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Assunto
+					</f:facet>
+				
+					<h:outputLink value="http://www.google.com.br/search?q=#{item.assunto}">
+						<h:outputText value="#{item.assunto}"/>
+					</h:outputLink>
+				</h:column>
+			
+				<h:column>
+					<f:facet name="header">
+						Ação
+					</f:facet>
+					
+					<h:commandButton value="Excluir" action="#{catalogaLivro.excluir}">
+						<f:setPropertyActionListener
+							target="#{catalogaLivro.livroSelecionado}" 
+							value="#{item}" />
+					</h:commandButton>
+				</h:column>
+				
+			</h:dataTable>
+			
+			<h3>
+				<h:commandLink value="Voltar para tela inicial" action="#{catalogaLivro.telaInicial}" />
+			</h3>
+		</h:form>
+		
+	</h:body>
+</html> 
